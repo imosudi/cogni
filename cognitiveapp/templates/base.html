@@ -1,0 +1,61 @@
+{% extends "bootstrap/base.html" %}
+{% block title %}Sample App by Mosudi{% endblock %}
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+{% block styles %}
+	<link rel="stylesheet" type="text/css"
+          href="{{url_for('static', filename='css/bootstrap.min.css')}}">
+        <link rel="stylesheet" type="text/css"
+          href="{{url_for('static', filename='css/narrow-jumbotron.css')}}">
+
+
+        <link rel="stylesheet" type="text/css"
+          href="{{url_for('static', filename='css/sticky-footer-navbar.css')}}">
+<link rel="stylesheet" href="https://github.com/necolas/normalize.css/blob/master/normalize.css">
+	<link href="https://fonts.googleapis.com/css?family=Indie+Flower|Raleway:900,900" 
+	rel="stylesheet"> 
+
+
+{% endblock %}
+
+
+{% block scripts %}
+<script src="{{url_for('static', filename='js/jquery-3.2.1.min.js')}}"></script>
+<script src="{{url_for('static', filename='js/bootstrap.min.js')}}"></script>
+
+{{ moment.include_moment() }}
+{% endblock %}
+
+{# Finally, round things out with navigation #}
+{% block navbar %}
+<div class="container">
+      <div class="header clearfix">
+        <nav>
+          <ul class="nav nav-pills float-right">
+            <li class="nav-item">
+              <a class="nav-link active" href="/">Home <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">About</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Contact</a>
+            </li>
+          </ul>
+        </nav>
+       <h3 class="font-weight-bold" >
+	<a class="text-primary" style="font-family: 'Indie Flower', cursive;">cognitive</a><a class="text-success" style="font-family: 'Raleway', sans-serif;">Radio</a></h3>
+      </div>
+{% endblock %}
+{% block content %}
+		{% block page_content %} {% endblock %}
+
+
+<footer style="text-align: center;"> &copy; copyright  2017 </a> </footer>
+{% endblock %}
+
+
