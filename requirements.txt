@@ -1,7 +1,9 @@
 alembic==0.9.6
 arrow==0.10.0
+backports.functools-lru-cache==1.4
 blueprint==3.4.2
 click==6.7
+cycler==0.10.0
 dateparser==0.6.0
 DateTime==4.2
 dominate==2.3.1
@@ -18,10 +20,13 @@ itsdangerous==0.24
 Jinja2==2.9.6
 Mako==1.0.7
 MarkupSafe==1.0
+matplotlib==2.1.0
 moment==0.8.2
+numpy==1.13.3
 passlib==1.7.1
 pluggy==0.5.2
 py==1.4.34
+pyparsing==2.2.0
 python-dateutil==2.6.1
 python-editor==1.0.3
 pytz==2017.3
@@ -30,6 +35,7 @@ ruamel.ordereddict==0.4.13
 ruamel.yaml==0.15.34
 six==1.11.0
 SQLAlchemy==1.1.14
+subprocess32==3.2.7
 times==0.7
 tox==2.9.1
 tzlocal==1.4

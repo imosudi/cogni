@@ -12,8 +12,13 @@ from flask_sqlalchemy import SQLAlchemy
 from flask_migrate import Migrate, MigrateCommand
 from flask_script import Manager
 
-#from models import Role, User
 
+import io
+import base64
+import matplotlib
+matplotlib.use('Agg')
+import numpy as np
+import matplotlib.pyplot as plt
 
 
 app = Flask(__name__)
@@ -30,12 +35,27 @@ db = SQLAlchemy(app)
 migrate = Migrate(app, db)
 manager.add_command('db', MigrateCommand)
 
-
+"""from main import main as main_blueprint
+app.register_blueprint(main_blueprint)"""
 
 @app.route('/')
 
 def index():
-    return render_template("index.html")
+    img = io.BytesIO()
+    t1 = np.arange(0.0, 5.0, 0.1)
+    t2 = np.arange(0.0, 5.0, 0.02)
+    plt.figure(1)
+    plt.subplot(211)
+    ft = np.exp(-t1) * np.cos(2*np.pi*t1)
+    ftt = np.exp(-t2) * np.cos(2*np.pi*t2)
+    plt.plot(t1, ft, 'bo', t2, ftt, 'k') 
+    plt.savefig(img, format='png', dpi=965)
+    img.seek(0)
+
+    plot_url = base64.b64encode(img.getvalue())#.decode()
+
+    return render_template("index.html", plot_url=plot_url)
+
 
 
 if __name__ == '__main__':
